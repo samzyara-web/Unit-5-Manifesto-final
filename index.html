@@ -1,0 +1,334 @@
+<style>
+  .center-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1100px;
+    height: 713px;
+    transform: translate(-50%, -50%);
+    cursor: none;
+    overflow: hidden;
+  }
+  .background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .navigation-link {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 30px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    text-align: center;
+  }
+  .navigation-link.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    display: block;
+  }
+  .nav-link:hover {
+    color: #ffab40;
+  }
+</style>
+<div class="center-container">
+  <!-- Navigation to manifesto -->
+  <div class="navigation-link">
+    <a href="Unit 5 Manifesto.html" class="nav-link">Read Manifesto →</a>
+  </div>
+  
+  <img src="./Book background draft 1.gif" alt="Background" class="background-img">
+  <!-- Row 1 -->
+  <img id="overlayImg1" src="./Spikey orange leaf.PNG" alt="Overlay 1" style="position: absolute; top: 0px; left: 100px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(1)">
+  <img id="overlayImg2" src="./Red Leaf.PNG" alt="Overlay 2" style="position: absolute; top: 0px; left: 200px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(2)">
+  <img id="overlayImg3" src="./Yellow Leaf.PNG" alt="Overlay 3" style="position: absolute; top: 0px; left: 300px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(3)">
+  <img id="overlayImg4" src="./Spikey orange leaf.PNG" alt="Overlay 4" style="position: absolute; top: 0px; left: 400px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(4)">
+  <img id="overlayImg5" src="./Brown leaf.PNG" alt="Overlay 5" style="position: absolute; top: 0px; left: 500px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(5)">
+  <img id="overlayImg6" src="./Yellow Leaf.PNG" alt="Overlay 6" style="position: absolute; top: 0px; left: 600px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(6)">
+  <img id="overlayImg7" src="./Spikey orange leaf.PNG" alt="Overlay 7" style="position: absolute; top: 0px; left: 700px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(7)">
+  <img id="overlayImg8" src="./Red Leaf.PNG" alt="Overlay 8" style="position: absolute; top: 0px; left: 800px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(8)">
+  <img id="overlayImg9" src="./Brown leaf.PNG" alt="Overlay 9" style="position: absolute; top: 0px; left: 900px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(9)">
+    <!-- Row 2 -->
+  <img id="overlayImg10" src="./Brown leaf.PNG" alt="Overlay 10" style="position: absolute; top: 100px; left: 100px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(10)">
+  <img id="overlayImg11" src="./Spikey orange leaf.PNG" alt="Overlay 11" style="position: absolute; top: 100px; left: 200px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(11)">
+  <img id="overlayImg12" src="./Brown leaf.PNG" alt="Overlay 12" style="position: absolute; top: 100px; left: 300px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(12)">
+  <img id="overlayImg13" src="./Spikey orange leaf.PNG" alt="Overlay 13" style="position: absolute; top: 100px; left: 400px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(13)">
+  <img id="overlayImg14" src="./Red Leaf.PNG" alt="Overlay 14" style="position: absolute; top: 100px; left: 500px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(14)">
+  <img id="overlayImg15" src="./Yellow Leaf.PNG" alt="Overlay 15" style="position: absolute; top: 100px; left: 600px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(15)">
+  <img id="overlayImg16" src="./Spikey orange leaf.PNG" alt="Overlay 16" style="position: absolute; top: 100px; left: 700px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(16)">
+  <img id="overlayImg17" src="./Brown leaf.PNG" alt="Overlay 17" style="position: absolute; top: 100px; left: 800px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(17)">
+  <img id="overlayImg18" src="./Yellow Leaf.PNG" alt="Overlay 18" style="position: absolute; top: 100px; left: 900px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(18)">
+  <!-- Row 3 -->
+  <img id="overlayImg19" src="./Spikey orange leaf.PNG" alt="Overlay 19" style="position: absolute; top: 200px; left: 100px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(19)">
+  <img id="overlayImg20" src="./Red Leaf.PNG" alt="Overlay 20" style="position: absolute; top: 200px; left: 200px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(20)">
+  <img id="overlayImg21" src="./Yellow Leaf.PNG" alt="Overlay 21" style="position: absolute; top: 200px; left: 300px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(21)">
+  <img id="overlayImg22" src="./Spikey orange leaf.PNG" alt="Overlay 22" style="position: absolute; top: 200px; left: 400px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(22)">
+  <img id="overlayImg23" src="./Brown leaf.PNG" alt="Overlay 23" style="position: absolute; top: 200px; left: 500px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(23)">
+  <img id="overlayImg24" src="./Yellow Leaf.PNG" alt="Overlay 24" style="position: absolute; top: 200px; left: 600px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(24)">
+  <img id="overlayImg25" src="./Spikey orange leaf.PNG" alt="Overlay 25" style="position: absolute; top: 200px; left: 700px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(25)">
+  <img id="overlayImg26" src="./Red Leaf.PNG" alt="Overlay 26" style="position: absolute; top: 200px; left: 800px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(26)">
+  <img id="overlayImg27" src="./Brown leaf.PNG" alt="Overlay 27" style="position: absolute; top: 200px; left: 900px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(27)">
+  <!-- Row 4 -->
+  <img id="overlayImg28" src="Spikey orange leaf.PNG" alt="Overlay 28" style="position: absolute; top: 300px; left: 100px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(28)">
+  <img id="overlayImg29" src="./Red Leaf.PNG" alt="Overlay 29" style="position: absolute; top: 300px; left: 200px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(29)">
+  <img id="overlayImg30" src="./Yellow Leaf.PNG" alt="Overlay 30" style="position: absolute; top: 300px; left: 300px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(30)">
+  <img id="overlayImg31" src="./Brown leaf.PNG" alt="Overlay 31" style="position: absolute; top: 300px; left: 400px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(31)">
+  <img id="overlayImg32" src="./Yellow Leaf.PNG" alt="Overlay 32" style="position: absolute; top: 300px; left: 500px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(32)">
+  <img id="overlayImg33" src="./Spikey orange leaf.PNG" alt="Overlay 33" style="position: absolute; top: 300px; left: 600px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(33)">
+  <img id="overlayImg34" src="./Red Leaf.PNG" alt="Overlay 34" style="position: absolute; top: 300px; left: 700px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(34)">
+  <img id="overlayImg35" src="./Brown leaf.PNG" alt="Overlay 35" style="position: absolute; top: 300px; left: 800px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(35)">
+  <img id="overlayImg36" src="./Spikey orange leaf.PNG" alt="Overlay 36" style="position: absolute; top: 300px; left: 900px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(36)">
+  <!-- Row 5 -->
+  <img id="overlayImg37" src="./Red Leaf.PNG" alt="Overlay 37" style="position: absolute; top: 400px; left: 100px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(37)">
+  <img id="overlayImg38" src="./Brown leaf.PNG" alt="Overlay 38" style="position: absolute; top: 400px; left: 200px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(38)">
+  <img id="overlayImg39" src="./Spikey orange leaf.PNG" alt="Overlay 39" style="position: absolute; top: 400px; left: 300px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(39)">
+  <img id="overlayImg40" src="./Red Leaf.PNG" alt="Overlay 40" style="position: absolute; top: 400px; left: 400px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(40)">
+  <img id="overlayImg41" src="./Brown leaf.PNG" alt="Overlay 41" style="position: absolute; top: 400px; left: 500px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(41)">
+  <img id="overlayImg42" src="./Spikey orange leaf.PNG" alt="Overlay 42" style="position: absolute; top: 400px; left: 600px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(42)">
+  <img id="overlayImg43" src="./Red Leaf.PNG" alt="Overlay 43" style="position: absolute; top: 400px; left: 700px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(43)">
+  <img id="overlayImg44" src="./Yellow Leaf.PNG" alt="Overlay 44" style="position: absolute; top: 400px; left: 800px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(44)">
+  <img id="overlayImg45" src="./Spikey orange leaf.PNG" alt="Overlay 45" style="position: absolute; top: 400px; left: 900px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(45)">
+  <!-- Row 6 -->
+  <img id="overlayImg46" src="./Red Leaf.PNG" alt="Overlay 46" style="position: absolute; top: 500px; left: 100px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(46)">
+  <img id="overlayImg47" src="./Yellow Leaf.PNG" alt="Overlay 47" style="position: absolute; top: 500px; left: 200px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(47)">
+  <img id="overlayImg48" src="./Spikey orange leaf.PNG" alt="Overlay 48" style="position: absolute; top: 500px; left: 300px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(48)">
+  <img id="overlayImg49" src="./Brown leaf.PNG" alt="Overlay 49" style="position: absolute; top: 500px; left: 400px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(49)">
+  <img id="overlayImg50" src="./Yellow Leaf.PNG" alt="Overlay 50" style="position: absolute; top: 500px; left: 500px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(50)">
+  <img id="overlayImg51" src="./Spikey orange leaf.PNG" alt="Overlay 51" style="position: absolute; top: 500px; left: 600px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(51)">
+  <img id="overlayImg52" src="./Red Leaf.PNG" alt="Overlay 52" style="position: absolute; top: 500px; left: 700px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(52)">
+  <img id="overlayImg53" src="./Yellow Leaf.PNG" alt="Overlay 53" style="position: absolute; top: 500px; left: 800px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(53)">
+  <img id="overlayImg54" src="./Brown leaf.PNG" alt="Overlay 54" style="position: absolute; top: 500px; left: 900px; width: 180px; height: 180px; z-index: 1; transition: top 0.2s, left 0.2s;" onmouseover="shiftOverlay(54)">
+  <!-- Cursor Image-->
+  <img id="cursorImg"
+       src="./IMG_1484.PNG"
+       alt="Cursor"
+       style="position: fixed; pointer-events: none; width: 250px; height: 250px; z-index: 1000; left: 0; top: 0; display: none;">
+</div>
+
+<script>
+  // Store initial positions for overlays
+  const initialOverlayPositions = [
+    {top: 0, left: 100},   // Overlay 1
+    {top: 0, left: 200},   // Overlay 2
+    {top: 0, left: 300},   // Overlay 3
+    {top: 0, left: 400},   // Overlay 4
+    {top: 0, left: 500},   // Overlay 5
+    {top: 0, left: 600},   // Overlay 6
+    {top: 0, left: 700},   // Overlay 7
+    {top: 0, left: 800},   // Overlay 8
+    {top: 0, left: 900},   // Overlay 9
+    {top: 100, left: 100},  // Overlay 10
+    {top: 100, left: 200},  // Overlay 11
+    {top: 100, left: 300},  // Overlay 12
+    {top: 100, left: 400},  // Overlay 13
+    {top: 100, left: 500},  // Overlay 14
+    {top: 100, left: 600},  // Overlay 15
+    {top: 100, left: 700},  // Overlay 16
+    {top: 100, left: 800},  // Overlay 17
+    {top: 100, left: 900},  // Overlay 18
+    {top: 200, left: 100},  // Overlay 19
+    {top: 200, left: 200},  // Overlay 20
+    {top: 200, left: 300},  // Overlay 21
+    {top: 200, left: 400},  // Overlay 22
+    {top: 200, left: 500},  // Overlay 23
+    {top: 200, left: 600},  // Overlay 24
+    {top: 200, left: 700},  // Overlay 25
+    {top: 200, left: 800},  // Overlay 26
+    {top: 200, left: 900},  // Overlay 27
+    {top: 300, left: 100},  // Overlay 28
+    {top: 300, left: 200},  // Overlay 29
+    {top: 300, left: 300},  // Overlay 30
+    {top: 300, left: 400},  // Overlay 31
+    {top: 300, left: 500},  // Overlay 32
+    {top: 300, left: 600},  // Overlay 33
+    {top: 300, left: 700},  // Overlay 34
+    {top: 300, left: 800},  // Overlay 35
+    {top: 300, left: 900},  // Overlay 36
+    {top: 400, left: 100},  // Overlay 37
+    {top: 400, left: 200},  // Overlay 38
+    {top: 400, left: 300},  // Overlay 39
+    {top: 400, left: 400},  // Overlay 40
+    {top: 400, left: 500},  // Overlay 41
+    {top: 400, left: 600},  // Overlay 42
+    {top: 400, left: 700},  // Overlay 43
+    {top: 400, left: 800},  // Overlay 44
+    {top: 400, left: 900},  // Overlay 45
+    {top: 500, left: 100},  // Overlay 46
+    {top: 500, left: 200},  // Overlay 47
+    {top: 500, left: 300},  // Overlay 48
+    {top: 500, left: 400},  // Overlay 49
+    {top: 500, left: 500},  // Overlay 50
+    {top: 500, left: 600},  // Overlay 51
+    {top: 500, left: 700},  // Overlay 52
+    {top: 500, left: 800},  // Overlay 53
+    {top: 500, left: 900}   // Overlay 54
+  ];
+
+  // Use a copy for current positions
+  let overlayPositions = initialOverlayPositions.map(pos => ({...pos}));
+
+  function shiftOverlay(idx) {
+    const img = document.getElementById('overlayImg' + idx);
+    if (!img) return;
+    let patternIdx = ((idx - 1) % 12) + 1;
+    switch(patternIdx) {
+      case 1: case 7: case 10: // shift right
+        overlayPositions[idx-1].left += 150;
+        img.style.left = overlayPositions[idx-1].left + 'px';
+        break;
+      case 2: case 8: case 11: // shift left
+        overlayPositions[idx-1].left -= 150;
+        img.style.left = overlayPositions[idx-1].left + 'px';
+        break;
+      case 3: case 9: // shift top right
+        overlayPositions[idx-1].top -= 100;
+        overlayPositions[idx-1].left += 150;
+        img.style.top = overlayPositions[idx-1].top + 'px';
+        img.style.left = overlayPositions[idx-1].left + 'px';
+        break;
+      case 4: // shift top right
+        overlayPositions[idx-1].top -= 100;
+        overlayPositions[idx-1].left += 150;
+        img.style.top = overlayPositions[idx-1].top + 'px';
+        img.style.left = overlayPositions[idx-1].left + 'px';
+        break;
+      case 5: // down and right
+        overlayPositions[idx-1].top += 100;
+        overlayPositions[idx-1].left += 150;
+        img.style.top = overlayPositions[idx-1].top + 'px';
+        img.style.left = overlayPositions[idx-1].left + 'px';
+        break;
+      case 6: case 12: // shift left
+        overlayPositions[idx-1].left -= 150;
+        img.style.left = overlayPositions[idx-1].left + 'px';
+        break;
+      default:
+        overlayPositions[idx-1].top += 100;
+        img.style.top = overlayPositions[idx-1].top + 'px';
+        break;
+    }
+    // Check if overlays are off screen after movement
+    checkOverlaysOffScreen();
+  }
+
+  function checkOverlaysOffScreen() {
+    const backgroundImg = document.querySelector('.background-img');
+    const container = document.querySelector('.center-container');
+    if (!backgroundImg || !container) return;
+    
+    const backgroundRect = backgroundImg.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    let visibleOverlaysOnGif = 0;
+    
+    // Count overlays that are both visible in container AND on the GIF
+    for (let i = 1; i <= 54; i++) {
+      const img = document.getElementById('overlayImg' + i);
+      if (img) {
+        const imgRect = img.getBoundingClientRect();
+        
+        // First check if overlay is visible within the container
+        const isVisibleInContainer = (
+          imgRect.right > containerRect.left && 
+          imgRect.left < containerRect.right && 
+          imgRect.bottom > containerRect.top && 
+          imgRect.top < containerRect.bottom
+        );
+        
+        // If visible in container, check if it's mostly on the background
+        if (isVisibleInContainer) {
+          // Calculate overlap area between leaf and background
+          const overlapLeft = Math.max(imgRect.left, backgroundRect.left);
+          const overlapRight = Math.min(imgRect.right, backgroundRect.right);
+          const overlapTop = Math.max(imgRect.top, backgroundRect.top);
+          const overlapBottom = Math.min(imgRect.bottom, backgroundRect.bottom);
+          
+          // Calculate overlap area and leaf area
+          const overlapWidth = Math.max(0, overlapRight - overlapLeft);
+          const overlapHeight = Math.max(0, overlapBottom - overlapTop);
+          const overlapArea = overlapWidth * overlapHeight;
+          
+          const leafWidth = imgRect.right - imgRect.left;
+          const leafHeight = imgRect.bottom - imgRect.top;
+          const leafArea = leafWidth * leafHeight;
+          
+          // Only count as "on background" if more than 50% of leaf is on background
+          const overlapPercentage = leafArea > 0 ? overlapArea / leafArea : 0;
+          
+          if (overlapPercentage > 0.5) {
+            visibleOverlaysOnGif++;
+          }
+        }
+      }
+    }
+    
+    // Show counter on page
+    let counter = document.getElementById('overlay-counter');
+    if (!counter) {
+      counter = document.createElement('div');
+      counter.id = 'overlay-counter';
+      counter.style.cssText = 'position: fixed; top: 10px; left: 10px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; font-family: Arial; z-index: 3000;';
+      document.body.appendChild(counter);
+    }
+    counter.textContent = `Visible leaves on background: ${visibleOverlaysOnGif}`;
+    
+    const navLink = document.querySelector('.navigation-link');
+    if (visibleOverlaysOnGif === 0) {
+      navLink.classList.add('visible');
+      counter.textContent = 'Background cleared! Link visible.';
+    } else {
+      navLink.classList.remove('visible');
+    }
+  }
+
+  function resetOverlay() {
+    // Reset overlayPositions to initial values
+    overlayPositions = initialOverlayPositions.map(pos => ({...pos}));
+    for (let i = 0; i < overlayPositions.length; i++) {
+      const img = document.getElementById('overlayImg' + (i + 1));
+      if (img) {
+        img.style.top = overlayPositions[i].top + 'px';
+        img.style.left = overlayPositions[i].left + 'px';
+      }
+    }
+    // Hide navigation link when overlays reset
+    const navLink = document.querySelector('.navigation-link');
+    navLink.classList.remove('visible');
+  }
+
+  setInterval(resetOverlay, 60000); // Restart every 60 seconds
+
+  // Show and move the cursor image
+  const cursorImg = document.getElementById('cursorImg');
+  document.addEventListener('mousemove', function(e) {
+    cursorImg.style.display = 'block';
+    // Position cursor image - adjusted to move left and up
+    const offsetX = 320; // Move image more to the left
+    const offsetY = 125; // Move image up by increasing this value
+    cursorImg.style.left = (e.clientX - offsetX) + 'px';
+    cursorImg.style.top = (e.clientY - offsetY) + 'px';
+  });
+
+  // Hide cursor image when mouse leaves the window
+  document.addEventListener('mouseleave', function() {
+    cursorImg.style.display = 'none';
+  });
+</script>

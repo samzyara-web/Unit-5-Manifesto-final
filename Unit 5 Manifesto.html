@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Green Background</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      html,body{ height:100%; margin:0; }
+      body{ display:block; background:#000000; }
+      .green-block{
+        position: fixed;
+        left: 0; top: 0; right: 0; bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #000000; /* changed to black */
+      }
+      .type-wrap{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 900px;
+        text-align: center; /* centers the block, individual lines will be left-aligned */
+        pointer-events: none; /* avoid accidental focus */
+      }
+  .typed{ color: #fff; font-family: 'Dancing Script', cursive, system-ui, sans-serif; margin: 0; font-size: 28px; text-align: left; display: block; }
+  /* make the top typed line centered and white */
+  h2.typed{ text-align: center; color: #fff; }
+      /* add space between the two typed lines */
+      .typed + .typed { margin-top: 18px; }
+  .cursor{ display: inline-block; margin-left:6px; opacity: 0.9; animation: blink 1s infinite; font-family: 'Dancing Script', cursive, system-ui, sans-serif; color: #fff; }
+    /* fade-in and slide-up animation for lines when revealed */
+    #line1, #line2, #line3 { 
+      display: inline-block; 
+      opacity: 0; 
+      transform: translateY(30px); 
+      transition: opacity 1.2s ease-out, transform 1.2s ease-out; 
+    }
+    #line1.visible, #line2.visible, #line3.visible { 
+      opacity: 1; 
+      transform: translateY(0); 
+      animation: textGlow 2s ease-in-out;
+    }
+    /* center the second and third typed lines with white color */
+    h3.typed, h4.typed { text-align: center; color: #fff; }
+    /* hide the cursor by default; typeText will show it while typing */
+    #cursor{ display: none; color: #fff; }
+      @keyframes blink{ 0%,50%{ opacity:1 } 51%,100%{ opacity:0 } }
+      @keyframes textGlow{ 
+        0%{ text-shadow: 0 0 5px rgba(255,255,255,0.3); }
+        50%{ text-shadow: 0 0 20px rgba(255,255,255,0.6), 0 0 30px rgba(255,255,255,0.4); }
+        100%{ text-shadow: 0 0 5px rgba(255,255,255,0.3); }
+      }
+      /* Animated Bubbles */
+      .bubbles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .bubble {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        animation: floatUp linear infinite;
+      }
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100vh) scale(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) scale(1);
+          opacity: 0;
+        }
+      }
+      /* Special leaf bubble animation using actual leaf images */
+      .leaf-bubble {
+        position: absolute;
+        animation: leafFloat linear infinite;
+        transform-origin: center;
+        pointer-events: none;
+      }
+      .leaf-bubble img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      @keyframes leafFloat {
+        0% {
+          transform: translateY(100vh) rotate(0deg) scale(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(50vh) rotate(180deg) scale(1);
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg) scale(0.5);
+          opacity: 0;
+        }
+      }
+      @keyframes leafFloatFromLeft {
+        0% {
+          transform: translateX(-200px) rotate(0deg) scale(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        50% {
+          transform: translateX(50vw) rotate(180deg) scale(1);
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(100vw) rotate(360deg) scale(0.5);
+          opacity: 0;
+        }
+      }
+      @keyframes leafFloatFromRight {
+        0% {
+          transform: translateX(100vw) rotate(0deg) scale(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        50% {
+          transform: translateX(50vw) rotate(-180deg) scale(1);
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-200px) rotate(-360deg) scale(0.5);
+          opacity: 0;
+        }
+      }
+      @keyframes leafFloatFromTop {
+        0% {
+          transform: translateY(-200px) rotate(0deg) scale(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(50vh) rotate(-180deg) scale(1);
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(-360deg) scale(0.5);
+          opacity: 0;
+        }
+      }
+      .transition-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 2s ease;
+      }
+      .transition-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      @keyframes blink{ 0%,50%{ opacity:1 } 51%,100%{ opacity:0 } }
+      .click-prompt{
+        position: fixed;
+        left: 50%;
+        bottom: 20px;
+        transform: translateX(-50%);
+        background: rgba(255,255,255,0.2);
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-family: system-ui, sans-serif;
+        font-size: 13px;
+        display: none;
+        z-index: 1000;
+        border: 1px solid rgba(255,255,255,0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="green-block" role="main" aria-label="Green background block"></div>
+    
+    <!-- Animated Bubbles Container -->
+    <div class="bubbles" id="bubbles-container"></div>
+    
+    <!-- Transition Overlay -->
+    <div class="transition-overlay" id="transition-overlay"></div>
+    
+    <div class="type-wrap" aria-hidden="false">
+      <h2 class="typed"><span id="line1"></span></h2>
+      <h3 class="typed"><span id="line2"></span></h3>
+      <h4 class="typed"><span id="line3"></span></h4>
+      <span class="cursor" id="cursor">|</span>
+    </div>
+    <div id="click-prompt" class="click-prompt" role="status" aria-hidden="true">Click anywhere to continue</div>
+    
+    <!-- Navigation to Interactive Project -->
+    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 1001;">
+      <a href="index.html" style="color: #000; text-decoration: none; font-family: 'Dancing Script', cursive; font-size: 18px; background: rgba(255, 255, 255, 0.9); padding: 12px 20px; border-radius: 25px; transition: all 0.3s ease; display: inline-block; border: 2px solid #fff;">← Back to Experience</a>
+    </div>
+    
+    <script>
+      const first = "Before you read the full text I encourage all to adopt an open-minded intellectual disposition to appreciate this belief.";
+      const second = "Fictional stories can reflect reality. The subject is often put into the pile of playful, impossible and unimportant, but I believe fiction is overlooked and there is more possibility in the deeper nature of the subject. The process of examining things that may not physically exist to understand an overall plot invites one to step outside of their own mind and delve into what could be possible. My goal is to invite people to progress from prejudgement and to think into what could be possible despite the physical outcome of a person or thing and I feel fiction allows one to practice this in myriad ways. ";
+
+    const l1 = document.getElementById('line1');
+    const l2 = document.getElementById('line2');
+    const l3 = document.getElementById('line3');
+    const third = "I firmly believe all things begin with the reality within as what is within a person flows out of them and into their surroundings. The proof is in what you can see in front of you and even what you have done today. You’ve thought of something and acted it out whether it was as simple as making something to eat or interacting with another person. It all begins with mental concept. ";
+      const cursor = document.getElementById('cursor');
+  const prompt = document.getElementById('click-prompt');
+
+      function typeText(targetEl, text, speed=50){
+        return new Promise(resolve => {
+          let idx = 0;
+          // show cursor while typing
+          cursor.style.display = 'inline-block';
+          // ensure cursor is inside the target element
+          targetEl.appendChild(cursor);
+          function step(){
+            if(idx <= text.length){
+              targetEl.textContent = text.slice(0, idx);
+              // re-append cursor so it stays at the end
+              targetEl.appendChild(cursor);
+              idx++;
+              setTimeout(step, speed);
+            } else {
+              // hide cursor when done
+              cursor.style.display = 'none';
+              resolve();
+            }
+          }
+          step();
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', async () => {
+        // Create animated bubbles
+        createBubbles();
+        
+        // show first line instantly and fade it in (no typing effect)
+        l1.textContent = first;
+        requestAnimationFrame(()=> l1.classList.add('visible'));
+        // wait for the fade to finish before showing the prompt
+        setTimeout(()=>{
+          if(prompt){
+            prompt.style.display = 'block';
+            prompt.setAttribute('aria-hidden','false');
+          }
+        }, 750);
+
+        // First click: start second line
+        function onClickStartSecond(){
+          document.removeEventListener('click', onClickStartSecond);
+          if(prompt){ prompt.style.display = 'none'; prompt.setAttribute('aria-hidden','true'); }
+          if(cursor.parentNode) cursor.parentNode.removeChild(cursor);
+          // reveal second line immediately (no typing effect) and fade it in
+          l2.textContent = second;
+          // trigger fade-in
+          requestAnimationFrame(()=> l2.classList.add('visible'));
+          if(cursor.parentNode) cursor.parentNode.removeChild(cursor);
+          // after second is shown, show the prompt again for the third line
+          if(prompt){ prompt.style.display = 'block'; prompt.setAttribute('aria-hidden','false'); }
+          // wait for another click to show the third line immediately
+          function onClickStartThird(){
+            document.removeEventListener('click', onClickStartThird);
+            if(prompt){ prompt.style.display = 'none'; prompt.setAttribute('aria-hidden','true'); }
+            if(cursor.parentNode) cursor.parentNode.removeChild(cursor);
+            // reveal third line immediately (no typing effect) and fade it in
+            l3.textContent = third;
+            // trigger fade-in
+            requestAnimationFrame(()=> l3.classList.add('visible'));
+            
+            // After third line is shown, wait for final click
+            setTimeout(()=>{
+              if(prompt){ prompt.style.display = 'block'; prompt.setAttribute('aria-hidden','false'); }
+              prompt.textContent = 'Click to complete the journey';
+              
+              function onFinalClick(){
+                document.removeEventListener('click', onFinalClick);
+                if(prompt){ prompt.style.display = 'none'; }
+                startEndingSequence();
+              }
+              document.addEventListener('click', onFinalClick);
+            }, 1500);
+          }
+            document.addEventListener('click', onClickStartThird);
+          }
+        document.addEventListener('click', onClickStartSecond);
+      });
+
+      // Function to create animated bubbles
+      function createBubbles() {
+        const bubblesContainer = document.getElementById('bubbles-container');
+        
+        function createBubble() {
+          const bubble = document.createElement('div');
+          bubble.className = 'bubble';
+          
+          // Random size between 10px and 50px
+          const size = Math.random() * 40 + 10;
+          bubble.style.width = size + 'px';
+          bubble.style.height = size + 'px';
+          
+          // Random horizontal position
+          bubble.style.left = Math.random() * 100 + '%';
+          
+          // Random animation duration between 6 and 12 seconds
+          const duration = Math.random() * 6 + 6;
+          bubble.style.animationDuration = duration + 's';
+          
+          // Random opacity
+          bubble.style.opacity = Math.random() * 0.3 + 0.1;
+          
+          bubblesContainer.appendChild(bubble);
+          
+          // Remove bubble after animation completes
+          setTimeout(() => {
+            if (bubble.parentNode) {
+              bubble.parentNode.removeChild(bubble);
+            }
+          }, duration * 1000);
+        }
+        
+        // Create bubbles continuously
+        window.bubbleInterval = setInterval(createBubble, 800);
+        
+        // Create initial bubbles
+        for (let i = 0; i < 5; i++) {
+          setTimeout(createBubble, i * 200);
+        }
+      }
+
+      // Special ending sequence with leaf bubbles
+      function startEndingSequence() {
+        const bubblesContainer = document.getElementById('bubbles-container');
+        const overlay = document.getElementById('transition-overlay');
+        
+        // Clear all previous text
+        const l1 = document.getElementById('line1');
+        const l2 = document.getElementById('line2');
+        const l3 = document.getElementById('line3');
+        
+        l1.style.opacity = '0';
+        l2.style.opacity = '0';
+        l3.style.opacity = '0';
+        
+        // After text fades out, show "Fiction Is Truth"
+        setTimeout(() => {
+          l1.textContent = '';
+          l2.textContent = 'Fiction Is Truth';
+          l3.textContent = '';
+          
+          // Style the new text
+          l2.style.fontSize = '48px';
+          l2.style.fontWeight = 'bold';
+          l2.style.textAlign = 'center';
+          l2.style.color = '#fff';
+          l2.style.textShadow = '0 0 30px rgba(255,255,255,0.8)';
+          
+          // Fade in the new text
+          l2.style.opacity = '1';
+          l2.style.transform = 'translateY(0) scale(1.1)';
+          l2.style.transition = 'all 1.5s ease-out';
+          
+          // Start leaf animation after text is shown
+          setTimeout(startLeafAnimation, 2000);
+        }, 1000);
+      }
+      
+      function startLeafAnimation() {
+        const bubblesContainer = document.getElementById('bubbles-container');
+        const overlay = document.getElementById('transition-overlay');
+        
+        // Stop regular bubbles
+        clearInterval(window.bubbleInterval);
+        
+        // Clear existing bubbles
+        bubblesContainer.innerHTML = '';
+        
+        // Create leaf bubbles
+        function createLeafBubble() {
+          const leaf = document.createElement('div');
+          leaf.className = 'leaf-bubble';
+          
+          // Array of leaf image sources - in the same manifesto folder
+          const leafImages = [
+            './Spikey orange leaf.PNG',
+            './Red Leaf.PNG',
+            './Yellow Leaf.PNG',
+            './Brown leaf.PNG'
+          ];
+          
+          // Array of animation directions
+          const animations = ['leafFloat', 'leafFloatFromLeft', 'leafFloatFromRight', 'leafFloatFromTop'];
+          const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+          
+          // Create img element with random leaf
+          const img = document.createElement('img');
+          const selectedImage = leafImages[Math.floor(Math.random() * leafImages.length)];
+          img.src = selectedImage;
+          img.alt = 'Floating leaf';
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'contain';
+          
+          // Add error handling for debugging
+          img.onerror = function() {
+            // Fallback: create a colored leaf shape if image fails
+            leaf.style.background = ['#ff8c00', '#dc143c', '#ffd700', '#8b4513'][Math.floor(Math.random() * 4)];
+            leaf.style.borderRadius = '50% 0 50% 0';
+            leaf.style.border = '2px solid rgba(255,255,255,0.3)';
+            leaf.innerHTML = '';
+          };
+          
+          leaf.appendChild(img);
+          
+          // Random size between 80px and 140px (larger for better visibility)
+          const size = Math.random() * 60 + 80;
+          leaf.style.width = size + 'px';
+          leaf.style.height = size + 'px';
+          leaf.style.position = 'fixed'; // Use fixed positioning
+          leaf.style.zIndex = '5000'; // Ensure they appear on top
+          
+          // Position based on animation direction
+          if (randomAnimation === 'leafFloat') {
+            // From bottom
+            leaf.style.left = Math.random() * (window.innerWidth - size) + 'px';
+            leaf.style.top = window.innerHeight + 'px';
+          } else if (randomAnimation === 'leafFloatFromLeft') {
+            // From left
+            leaf.style.left = '-' + size + 'px';
+            leaf.style.top = Math.random() * (window.innerHeight - size) + 'px';
+          } else if (randomAnimation === 'leafFloatFromRight') {
+            // From right
+            leaf.style.left = window.innerWidth + 'px';
+            leaf.style.top = Math.random() * (window.innerHeight - size) + 'px';
+          } else if (randomAnimation === 'leafFloatFromTop') {
+            // From top
+            leaf.style.left = Math.random() * (window.innerWidth - size) + 'px';
+            leaf.style.top = '-' + size + 'px';
+          }
+          
+          // Random animation duration between 4 and 8 seconds
+          const duration = Math.random() * 4 + 4;
+          leaf.style.animationName = randomAnimation;
+          leaf.style.animationDuration = duration + 's';
+          leaf.style.animationTimingFunction = 'linear';
+          leaf.style.animationFillMode = 'forwards';
+          
+          bubblesContainer.appendChild(leaf);
+          
+          // Remove after animation
+          setTimeout(() => {
+            if (leaf.parentNode) {
+              leaf.parentNode.removeChild(leaf);
+            }
+          }, duration * 1000);
+        }
+        
+        // Create leaf bubbles rapidly
+        const leafInterval = setInterval(createLeafBubble, 150); // Faster generation - every 150ms instead of 300ms
+        
+        // Create initial burst of leaves
+        for (let i = 0; i < 25; i++) { // More initial leaves - 25 instead of 10
+          setTimeout(createLeafBubble, i * 50); // Shorter delays between initial leaves
+        }
+        
+        // After 5 seconds, start transition back to first page
+        setTimeout(() => {
+          clearInterval(leafInterval);
+          overlay.classList.add('active');
+          
+          // Navigate back to first page after transition
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 2000);
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
